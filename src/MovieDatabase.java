@@ -15,13 +15,17 @@ HashMap<String, Movie> database;
 		database = data;
 	}
 	
+	//For some reason, some of the movie AMTs are returning as negative, which should never be the case. Math.abs is a temporary fix.
 	public int totalAMT(int year) {
 		int totalAMT = 0;
 		for (String title : database.keySet()) {
 			Movie movie = database.get(title);
 			if (movie.getYear() == year) {
-				totalAMT = totalAMT + movie.getBoxOfficeAmt();
-			}
+				System.out.println(Math.abs(totalAMT) + " + " + Math.abs(movie.getBoxOfficeAmt()));
+				totalAMT = Math.abs(totalAMT) + Math.abs(movie.getBoxOfficeAmt());
+				System.out.println(totalAMT);
+				}
+			
 		}
 		return totalAMT;
 	}
