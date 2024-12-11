@@ -21,9 +21,7 @@ HashMap<String, Movie> database;
 		for (String title : database.keySet()) {
 			Movie movie = database.get(title);
 			if (movie.getYear() == year) {
-				System.out.println(Math.abs(totalAMT) + " + " + Math.abs(movie.getBoxOfficeAmt()));
 				totalAMT = Math.abs(totalAMT) + Math.abs(movie.getBoxOfficeAmt());
-				System.out.println(totalAMT);
 				}
 			
 		}
